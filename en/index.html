@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Luno Works — 旅行・フィットネスなど、日々の生活を豊かにするiOSアプリを開発する個人アプリスタジオ。" />
+  <meta name="description" content="Luno Works — Independent app developer creating travel, fitness, and lifestyle apps for iOS." />
   <title>Luno Works</title>
   <style>
     *, *::before, *::after {
@@ -20,7 +20,7 @@
       --color-accent-hover: #0077ed;
       --color-border: #d2d2d7;
       --color-section-bg: #f5f5f7;
-      --font-main: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+      --font-main: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -108,9 +108,7 @@
       color: var(--color-accent);
     }
 
-    .lang-divider {
-      color: var(--color-border);
-    }
+    .lang-divider { color: var(--color-border); }
 
     /* ── Hero ── */
     .hero {
@@ -132,8 +130,8 @@
     .hero h1 {
       font-size: clamp(36px, 6vw, 60px);
       font-weight: 700;
-      letter-spacing: -1px;
-      line-height: 1.15;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
       margin-bottom: 24px;
     }
 
@@ -179,12 +177,11 @@
     .section h2 {
       font-size: clamp(26px, 4vw, 40px);
       font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.25;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
       margin-bottom: 20px;
     }
 
-    .section > .section-inner > p,
     .section-body {
       font-size: 17px;
       color: var(--color-text-secondary);
@@ -283,17 +280,17 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <a class="logo" href="#">Luno Works</a>
+      <a class="logo" href="/en/">Luno Works</a>
       <div class="header-right">
         <nav>
-          <a href="#about">私たちについて</a>
-          <a href="#focus">アプリ</a>
-          <a href="#contact">お問い合わせ</a>
+          <a href="#about">About</a>
+          <a href="#focus">Apps</a>
+          <a href="#contact">Contact</a>
         </nav>
         <div class="lang-switch">
-          <a href="/" class="active">日本語</a>
+          <a href="/">日本語</a>
           <span class="lang-divider">|</span>
-          <a href="/en/">English</a>
+          <a href="/en/" class="active">English</a>
         </div>
       </div>
     </div>
@@ -302,19 +299,18 @@
   <!-- Hero -->
   <section class="hero">
     <p class="hero-eyebrow">Independent App Developer</p>
-    <h1>日々の生活を、<br>もっと豊かに。</h1>
-    <p>Luno Worksは、旅行・フィットネスをはじめ、あなたの毎日に寄り添うiOSアプリを開発する個人アプリスタジオです。</p>
-    <a class="btn" href="#contact">お問い合わせ</a>
+    <h1>Apps that enrich everyday life.</h1>
+    <p>Luno Works designs and develops iOS applications focused on travel, fitness, and the experiences that matter most.</p>
+    <a class="btn" href="#contact">Get in Touch</a>
   </section>
 
   <!-- About -->
   <section class="section section-alt" id="about">
     <div class="section-inner">
       <p class="section-label">About</p>
-      <h2>丁寧に設計された、<br>本当に使えるアプリを。</h2>
+      <h2>Crafted with care,<br>built for real life.</h2>
       <p class="section-body">
-        Luno Worksは、使いやすさと完成度にこだわったiOSアプリの開発スタジオです。
-        ユーザーが実際に抱える課題や不便さを出発点に、デザインと機能の両面から誠実にアプリを作り上げています。
+        Luno Works is an independent app development studio dedicated to building intuitive, well-designed iOS applications. Every product we create is shaped around genuine user needs — thoughtful in its design, reliable in its performance.
       </p>
     </div>
   </section>
@@ -323,22 +319,22 @@
   <section class="section" id="focus">
     <div class="section-inner">
       <p class="section-label">Focus Areas</p>
-      <h2>手がけるジャンル。</h2>
+      <h2>What we build.</h2>
       <div class="cards">
         <div class="card">
           <div class="card-icon">✈️</div>
-          <h3>旅行</h3>
-          <p>旅の計画から現地での体験まで、自信を持って世界を楽しめるようサポートするアプリ。</p>
+          <h3>Travel</h3>
+          <p>Apps that help people explore the world with confidence — from trip planning to on-the-go discovery.</p>
         </div>
         <div class="card">
           <div class="card-icon">🏃</div>
-          <h3>フィットネス</h3>
-          <p>毎日の習慣を後押しし、健康的なライフスタイルを無理なく続けられるツール。</p>
+          <h3>Fitness</h3>
+          <p>Tools that motivate and support healthy habits, making it easier to stay active every day.</p>
         </div>
         <div class="card">
           <div class="card-icon">✨</div>
-          <h3>ライフスタイル</h3>
-          <p>日常に自然に溶け込み、暮らしをちょっと楽しくする、こだわりのアプリ。</p>
+          <h3>Lifestyle</h3>
+          <p>Thoughtfully designed apps that fit naturally into daily life and bring a little more joy to the everyday.</p>
         </div>
       </div>
     </div>
@@ -348,15 +344,15 @@
   <section class="section section-alt" id="contact">
     <div class="section-inner">
       <p class="section-label">Contact</p>
-      <h2>お気軽にどうぞ。</h2>
-      <p class="section-body">ご質問・フィードバックなど、お気軽にご連絡ください。</p>
+      <h2>Let's connect.</h2>
+      <p class="section-body">Have a question or feedback? We'd love to hear from you.</p>
       <div class="contact-grid">
         <div class="contact-item">
-          <p class="contact-type">サポート</p>
+          <p class="contact-type">Support</p>
           <a href="mailto:support@luno-works.com">support@luno-works.com</a>
         </div>
         <div class="contact-item">
-          <p class="contact-type">ウェブサイト</p>
+          <p class="contact-type">Website</p>
           <a href="https://luno-works.com">luno-works.com</a>
         </div>
       </div>
