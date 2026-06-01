@@ -1,404 +1,518 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Luno Works — 旅行・フィットネスなど、日々の生活を豊かにするiOSアプリを開発する個人アプリスタジオ。" />
-  <title>Luno Works</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luno Works｜ソフトウェア開発スタジオ</title>
+  <meta name="description" content="Luno Works（ルノワークス）は、Web／モバイルアプリを企画・開発・運営するソフトウェア開発スタジオです。第一弾プロダクト「tabilog」をはじめ、ていねいなものづくりで新しいプロダクトを順次お届けします。">
+  <link rel="canonical" href="https://luno-works.com/">
+  <meta property="og:title" content="Luno Works｜ソフトウェア開発スタジオ">
+  <meta property="og:description" content="Web／モバイルアプリを企画・開発・運営するソフトウェア開発スタジオ。新しいプロダクトを順次お届けします。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luno-works.com/">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="theme-color" content="#ffffff">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black:   #0a0a0a;
-      --white:   #ffffff;
-      --gray-100: #f4f4f5;
-      --gray-200: #e4e4e7;
-      --gray-400: #a1a1aa;
-      --gray-500: #71717a;
-      --accent:  #2563eb;
-      --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
-              "Hiragino Kaku Gothic ProN", "Yu Gothic Medium",
-              "Noto Sans JP", sans-serif;
+      --accent: #0066cc;
+      --accent-press: #0055b3;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --line-soft: #e8e8ed;
+      --bg: #ffffff;
+      --bg-alt: #f5f5f7;
+      --header-h: 52px;
+      --maxw: 1080px;
     }
-
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
     body {
-      font-family: var(--font);
-      background: var(--white);
-      color: var(--black);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Header ── */
-    header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 60px;
-      border-bottom: 1px solid var(--gray-200);
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .logo {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--black);
-      text-decoration: none;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-
-    nav { display: flex; gap: 28px; }
-
-    nav a {
-      font-size: 13px;
-      color: var(--gray-500);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.15s;
-    }
-
-    nav a:hover { color: var(--black); }
-
-    .lang-switch { display: flex; gap: 2px; }
-
-    .lang-switch a {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 4px 9px;
-      border-radius: 4px;
-      color: var(--gray-400);
-      text-decoration: none;
-      transition: all 0.15s;
-    }
-
-    .lang-switch a.active {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    /* ── Hero ── */
-    .hero {
-      min-height: 100svh;
-      padding: 140px 48px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 36px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-    }
-
-    .hero-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 8.5vw, 112px);
-      font-weight: 800;
-      line-height: 0.96;
-      letter-spacing: -0.03em;
-      max-width: 16ch;
-      margin-bottom: 52px;
-    }
-
-    .hero-footer {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 48px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: var(--gray-500);
-      line-height: 1.75;
-      max-width: 400px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 22px;
-      background: var(--black);
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      border-radius: 4px;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .btn:hover { opacity: 0.72; }
-
-    /* ── Section base ── */
-    .section {
-      padding: 96px 48px;
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      margin-bottom: 64px;
-    }
-
-    .section-num {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--gray-400);
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-
-    .section h2 {
-      font-size: clamp(30px, 4.5vw, 52px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-    }
-
-    /* ── About (inverted) ── */
-    .section-about {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .section-about .section-num { color: #555; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .about-lead {
-      font-size: clamp(20px, 2.2vw, 26px);
-      font-weight: 700;
-      line-height: 1.5;
-      letter-spacing: -0.01em;
-      color: var(--white);
-    }
-
-    .about-body {
-      font-size: 15px;
-      color: #888;
-      line-height: 1.85;
-      padding-top: 6px;
-    }
-
-    /* ── Focus (editorial rows) ── */
-    .focus-list { display: flex; flex-direction: column; }
-
-    .focus-item {
-      display: grid;
-      grid-template-columns: 48px 56px 1fr 1fr;
-      align-items: center;
-      gap: 28px;
-      padding: 28px 0;
-      border-top: 1px solid var(--gray-200);
-    }
-
-    .focus-item:last-child { border-bottom: 1px solid var(--gray-200); }
-
-    .focus-index {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--gray-400);
-    }
-
-    .focus-icon { font-size: 26px; line-height: 1; }
-
-    .focus-title {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .focus-desc {
-      font-size: 14px;
-      color: var(--gray-500);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                   "Noto Sans JP", sans-serif;
+      font-size: 17px;
       line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img, svg { display: block; }
+    h1, h2, h3 { letter-spacing: -0.02em; }
+    ::selection { background: rgba(0,102,204,0.14); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 720px; }
+
+    /* link with chevron — "詳しく見る ›" */
+    .link {
+      color: var(--accent); font-size: 17px; font-weight: 400;
+      display: inline-flex; align-items: center; gap: 3px;
+    }
+    .link:hover { text-decoration: none; }
+    .link:hover .label { text-decoration: underline; }
+    .link .chev { transition: transform .2s ease; font-style: normal; }
+    .link:hover .chev { transform: translateX(2px); }
+
+    /* ---------- Header ---------- */
+    header.site {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    header.site .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--header-h);
+    }
+    .brand {
+      display: flex; align-items: center; gap: 9px;
+      font-weight: 600; font-size: 19px; color: var(--ink); letter-spacing: -0.02em;
+    }
+    .brand:hover { text-decoration: none; }
+    .brand .mark { color: var(--ink); }
+    nav.menu { display: flex; gap: 34px; font-size: 14px; }
+    nav.menu a { color: var(--ink); opacity: 0.82; }
+    nav.menu a:hover { opacity: 1; text-decoration: none; }
+    .menu-toggle {
+      display: none; background: none; border: 0; padding: 8px; cursor: pointer;
+      color: var(--ink);
+    }
+    .mobile-nav { display: none; }
+
+    @media (max-width: 720px) {
+      nav.menu { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .mobile-nav {
+        display: block; border-bottom: 1px solid rgba(0,0,0,0.08);
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        position: sticky; top: var(--header-h); z-index: 99;
+        max-height: 0; overflow: hidden; transition: max-height .28s ease;
+      }
+      .mobile-nav.open { max-height: 320px; }
+      .mobile-nav a {
+        display: block; padding: 15px 24px; color: var(--ink);
+        font-size: 16px; border-top: 1px solid var(--line);
+      }
+      .mobile-nav a:first-child { border-top: 0; }
+      .mobile-nav a:hover { text-decoration: none; background: var(--bg-alt); }
     }
 
-    /* ── Contact ── */
-    .contact-link {
-      display: inline-block;
-      font-size: clamp(22px, 3.5vw, 44px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      text-decoration: none;
-      border-bottom: 2px solid var(--black);
-      padding-bottom: 4px;
-      transition: color 0.2s, border-color 0.2s;
-      margin-top: 8px;
+    /* ---------- Hero ---------- */
+    .hero { padding: 132px 0 116px; text-align: center; }
+    .hero .eyebrow {
+      font-size: 15px; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.04em; margin-bottom: 24px;
     }
-
-    .contact-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
+    .hero h1 {
+      font-size: 58px; line-height: 1.06; font-weight: 700;
+      letter-spacing: -0.028em; margin-bottom: 28px;
     }
-
-    .contact-note {
-      margin-top: 40px;
-      font-size: 14px;
-      color: var(--gray-500);
+    .hero p.lead {
+      font-size: 21px; line-height: 1.52; color: var(--muted);
+      max-width: 660px; margin: 0 auto 40px;
     }
-
-    /* ── Footer ── */
-    footer {
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .cta { display: inline-flex; gap: 28px; flex-wrap: wrap; justify-content: center; align-items: center; }
+    .btn {
+      display: inline-block; padding: 12px 26px; border-radius: 980px;
+      font-size: 16px; font-weight: 500; transition: background .2s ease;
     }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn.primary:hover { background: var(--accent-press); text-decoration: none; }
 
-    footer p {
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: var(--gray-400);
-      text-transform: uppercase;
+    /* ---------- Sections ---------- */
+    section { padding: 110px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-head { max-width: 740px; }
+    .section-head .kicker {
+      font-size: 14px; font-weight: 600; color: var(--accent);
+      margin-bottom: 14px; letter-spacing: 0.02em; text-transform: uppercase;
     }
+    section h2 {
+      font-size: 42px; line-height: 1.1; font-weight: 700;
+      letter-spacing: -0.024em; margin-bottom: 22px;
+    }
+    section .sub { font-size: 19px; line-height: 1.62; color: var(--muted); }
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      header       { padding: 0 24px; }
-      nav          { display: none; }
-      .hero        { padding: 110px 24px 56px; }
-      .hero-footer { grid-template-columns: 1fr; gap: 28px; }
-      .section     { padding: 64px 24px; }
-      .about-grid  { grid-template-columns: 1fr; gap: 32px; }
-      .focus-item  { grid-template-columns: 40px 1fr; }
-      .focus-index,
-      .focus-desc  { display: none; }
-      footer       { flex-direction: column; gap: 6px; padding: 24px; }
+    /* About / values */
+    .values {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; margin-top: 76px;
+    }
+    .value {
+      padding: 36px 32px;
+      background: var(--bg);
+      border: 1px solid var(--line-soft);
+      border-radius: 16px;
+    }
+    .value .vico { width: 32px; height: 32px; color: var(--ink); margin-bottom: 24px; }
+    .value h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.015em; }
+    .value p { font-size: 16px; line-height: 1.65; color: var(--muted); }
+
+    /* ---------- Products ---------- */
+    .product-list { margin-top: 68px; display: flex; flex-direction: column; gap: 24px; }
+    .product-card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 18px;
+      overflow: hidden;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: stretch;
+    }
+    .product-card .body { padding: 60px; align-self: center; }
+    .product-card .tag {
+      display: inline-block; font-size: 12px; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .product-card h3 {
+      font-size: 32px; font-weight: 700; letter-spacing: -0.022em; margin-bottom: 8px;
+      display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+    }
+    .product-card h3 .romaji { color: var(--muted); font-weight: 500; font-size: 0.6em; letter-spacing: 0; }
+    .product-card .catch { font-size: 20px; color: var(--ink); margin-bottom: 18px; font-weight: 500; letter-spacing: -0.01em; }
+    .product-card .desc { font-size: 16px; line-height: 1.65; color: var(--muted); margin-bottom: 26px; }
+    .product-card ul.feat { list-style: none; margin-bottom: 30px; }
+    .product-card ul.feat li {
+      display: flex; align-items: flex-start; gap: 13px;
+      font-size: 16px; color: var(--ink); padding: 11px 0;
+      border-top: 1px solid var(--line-soft);
+    }
+    .product-card ul.feat li:first-child { border-top: 0; }
+    .product-card ul.feat li svg { flex-shrink: 0; margin-top: 4px; color: var(--accent); }
+    .product-card .meta { font-size: 14px; color: var(--muted); }
+
+    /* product visual — brand logo on its native cream backdrop */
+    .product-visual {
+      background: #f7f4ea;
+      border-left: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      padding: 48px; min-height: 360px;
+    }
+    .product-visual img { width: 100%; max-width: 340px; height: auto; }
+
+    /* coming-soon card */
+    .product-card.soon { grid-template-columns: 1fr; }
+    .product-card.soon .body {
+      padding: 56px 60px; display: flex; flex-direction: column;
+      align-items: flex-start; gap: 14px;
+    }
+    .product-card.soon .soon-head { display: flex; align-items: center; gap: 16px; }
+    .product-card.soon .soon-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+      color: var(--muted); flex-shrink: 0;
+    }
+    .product-card.soon h3 { font-size: 24px; margin: 0; display: block; }
+    .product-card.soon p { font-size: 16px; color: var(--muted); line-height: 1.65; max-width: 640px; }
+
+    /* ---------- Company table ---------- */
+    table.info { width: 100%; border-collapse: collapse; margin-top: 60px; }
+    table.info th, table.info td {
+      border-top: 1px solid var(--line); padding: 24px 4px;
+      text-align: left; vertical-align: top; font-size: 16px;
+    }
+    table.info tr:last-child th, table.info tr:last-child td { border-bottom: 1px solid var(--line); }
+    table.info th { width: 32%; color: var(--muted); font-weight: 500; }
+    table.info td { color: var(--ink); }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; }
+    .contact .mail {
+      font-size: 34px; font-weight: 600; letter-spacing: -0.022em; margin: 28px 0 10px;
+    }
+    .contact .mail a { color: var(--accent); }
+    .contact .note { font-size: 15px; color: var(--muted); }
+
+    /* ---------- Footer ---------- */
+    footer.site {
+      background: var(--bg-alt); color: var(--muted);
+      font-size: 13px; line-height: 1.6; padding: 44px 0;
+      border-top: 1px solid var(--line);
+    }
+    footer.site .top {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 18px; padding-bottom: 20px;
+    }
+    footer.site nav { display: flex; gap: 26px; flex-wrap: wrap; }
+    footer.site nav a { color: var(--muted); }
+    footer.site nav a:hover { color: var(--ink); text-decoration: none; }
+    footer.site .legal { border-top: 1px solid var(--line); padding-top: 20px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .values { grid-template-columns: 1fr; gap: 12px; }
+      .product-card { grid-template-columns: 1fr; }
+      .product-visual { border-left: 0; border-top: 1px solid var(--line); order: -1; min-height: 260px; padding: 44px; }
+      .product-card .body { padding: 44px; }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .hero { padding: 84px 0 76px; }
+      .hero h1 { font-size: 38px; }
+      .hero p.lead { font-size: 18px; }
+      .cta { gap: 20px; }
+      section { padding: 76px 0; }
+      section h2 { font-size: 30px; }
+      section .sub { font-size: 17px; }
+      .values { margin-top: 48px; }
+      .value { padding: 30px 26px; }
+      .product-card .body { padding: 36px; }
+      .product-card h3 { font-size: 27px; }
+      .product-card.soon .body { padding: 36px; }
+      .contact .mail { font-size: 23px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <a class="logo" href="/">Luno Works</a>
-    <div class="header-right">
-      <nav>
-        <a href="#about">私たちについて</a>
-        <a href="#focus">アプリ</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Luno Works ホーム">
+        <span class="mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="18" height="18" rx="5"/>
+            <path d="M7 6v10h7"/>
+          </svg>
+        </span>
+        <span>Luno Works</span>
+      </a>
+      <nav class="menu" aria-label="メインナビゲーション">
+        <a href="#about">ミッション</a>
+        <a href="#products">プロダクト</a>
+        <a href="#company">会社概要</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
-      <div class="lang-switch">
-        <a href="/" class="active">JP</a>
-        <a href="/en/">EN</a>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M3 7h16M3 15h16"/>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-eyebrow">
-      <span class="hero-dot"></span>
-      <span>Independent App Developer</span>
-      <span>·</span>
-      <span>iOS</span>
-    </div>
-    <h1>日々の生活を、<br>もっと豊かに。</h1>
-    <div class="hero-footer">
-      <p>旅行・フィットネスをはじめ、あなたの毎日に寄り添うiOSアプリを開発する個人アプリスタジオです。</p>
-      <a class="btn" href="#contact">お問い合わせ →</a>
-    </div>
-  </section>
+  <nav class="mobile-nav" id="mobileNav" aria-label="モバイルナビゲーション">
+    <a href="#about">ミッション</a>
+    <a href="#products">プロダクト</a>
+    <a href="#company">会社概要</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
 
-  <!-- About -->
-  <section class="section section-about" id="about">
-    <div class="section-head">
-      <span class="section-num">01</span>
-      <h2>About</h2>
-    </div>
-    <div class="about-grid">
-      <p class="about-lead">丁寧に設計された、<br>本当に使えるアプリを。</p>
-      <p class="about-body">Luno Worksは、使いやすさと完成度にこだわったiOSアプリの開発スタジオです。ユーザーが実際に抱える課題や不便さを出発点に、デザインと機能の両面から誠実にアプリを作り上げています。</p>
-    </div>
-  </section>
-
-  <!-- Focus Areas -->
-  <section class="section" id="focus">
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Focus Areas</h2>
-    </div>
-    <div class="focus-list">
-      <div class="focus-item">
-        <span class="focus-index">001</span>
-        <span class="focus-icon">✈️</span>
-        <span class="focus-title">旅行</span>
-        <p class="focus-desc">旅の計画から現地での体験まで、自信を持って世界を楽しめるようサポートするアプリ。</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Software Studio</p>
+        <h1>体験を、かたちにする<br>ソフトウェアを。</h1>
+        <p class="lead">
+          Luno Works（ルノワークス）は、日々の体験を心地よく残せる
+          Web／モバイルアプリを企画・開発・運営するスタジオです。
+          ていねいなものづくりで、新しいプロダクトを順次お届けします。
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#products">プロダクトを見る</a>
+          <a class="link" href="#about"><span class="label">私たちについて</span><span class="chev" aria-hidden="true">&rsaquo;</span></a>
+        </div>
       </div>
-      <div class="focus-item">
-        <span class="focus-index">002</span>
-        <span class="focus-icon">🏃</span>
-        <span class="focus-title">フィットネス</span>
-        <p class="focus-desc">毎日の習慣を後押しし、健康的なライフスタイルを無理なく続けられるツール。</p>
-      </div>
-      <div class="focus-item">
-        <span class="focus-index">003</span>
-        <span class="focus-icon">✨</span>
-        <span class="focus-title">ライフスタイル</span>
-        <p class="focus-desc">日常に自然に溶け込み、暮らしをちょっと楽しくする、こだわりのアプリ。</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="section-head">
-      <span class="section-num">03</span>
-      <h2>Contact</h2>
-    </div>
-    <a class="contact-link" href="mailto:support@luno-works.com">support@luno-works.com</a>
-    <p class="contact-note">ご質問・フィードバックなど、お気軽にご連絡ください。</p>
-  </section>
+    <!-- About / Mission -->
+    <section id="about" class="section-alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Mission</p>
+          <h2>記録することを、<br>もっと軽やかに。</h2>
+          <p class="sub">
+            私たちは、毎日の体験や思い出をやさしく残せるプロダクトをつくります。
+            プライバシーを尊重し、シンプルで迷わない設計を貫きながら、
+            長く使えるソフトウェアを丁寧に育てていきます。
+          </p>
+        </div>
+        <div class="values">
+          <div class="value">
+            <span class="vico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 28c5.6-5.6 9-10 9-14.4A9 9 0 0 0 7 13.6C7 18 10.4 22.4 16 28Z"/>
+                <circle cx="16" cy="13.4" r="3.2"/>
+              </svg>
+            </span>
+            <h3>体験を、かたちに</h3>
+            <p>訪れた場所や日々の出来事を、後から心地よく振り返れるかたちで残せる体験を設計します。</p>
+          </div>
+          <div class="value">
+            <span class="vico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="7" y="14.5" width="18" height="12.5" rx="2.6"/>
+                <path d="M11 14.5v-3.5a5 5 0 0 1 10 0v3.5"/>
+                <path d="M16 20v2.6"/>
+              </svg>
+            </span>
+            <h3>プライバシー第一</h3>
+            <p>行動分析目的のトラッキングは行いません。収集する情報は、機能提供に必要な範囲に限定します。</p>
+          </div>
+          <div class="value">
+            <span class="vico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 5l2.7 5.5 6.1.9-4.4 4.3 1 6.1L16 23l-5.4 2.9 1-6.1L7.2 11.4l6.1-.9L16 5Z"/>
+              </svg>
+            </span>
+            <h3>ていねいな設計</h3>
+            <p>シンプルで迷わない操作と、心地よい使い心地。細部まで磨いたプロダクトを届け続けます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Luno Works</p>
-    <p>luno-works.com</p>
+    <!-- Products -->
+    <section id="products">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Products</p>
+          <h2>プロダクト</h2>
+          <p class="sub">
+            私たちが手がけるアプリをご紹介します。これらは、これから続いていくプロダクトの最初の一歩です。
+          </p>
+        </div>
+
+        <div class="product-list">
+          <!-- tabilog -->
+          <article class="product-card">
+            <div class="body">
+              <span class="tag">第一弾プロダクト</span>
+              <h3>tabilog</h3>
+              <p class="catch">日本の旅を、地図に刻む。</p>
+              <p class="desc">
+                訪れた都道府県や旅のタイトル、日程、メモ、写真・動画を記録し、
+                友達と思い出のアルバムを共有できる旅行記録アプリです。
+              </p>
+              <ul class="feat">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
+                  <span>訪れた都道府県を地図で振り返る</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
+                  <span>写真・動画つきで旅のメモを記録</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
+                  <span>友達を招待してアルバムを共有</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
+                  <span>無料プラン（3GB）と有料プランを用意</span>
+                </li>
+              </ul>
+              <p class="meta">iOS / Android 向けアプリ</p>
+            </div>
+            <div class="product-visual">
+              <img src="./assets/tabilog-icon.png" width="340" height="340" loading="lazy" alt="tabilog のロゴ">
+            </div>
+          </article>
+
+          <!-- Coming soon -->
+          <article class="product-card soon">
+            <div class="body">
+              <div class="soon-head">
+                <span class="soon-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 5v6l4 2"/>
+                    <circle cx="11" cy="11" r="8"/>
+                  </svg>
+                </span>
+                <div>
+                  <span class="tag" style="margin-bottom:2px;">Coming soon</span>
+                  <h3>次のプロダクトを開発中</h3>
+                </div>
+              </div>
+              <p>
+                Luno Works は、これからも複数のWeb／モバイルアプリを順次リリースしていきます。
+                新しいプロダクトの情報は、本サイトおよび各ストアにてお知らせします。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company -->
+    <section id="company" class="section-alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Company</p>
+          <h2>会社概要</h2>
+          <p class="sub">事業者情報は以下のとおりです。</p>
+        </div>
+        <table class="info">
+          <tbody>
+            <tr><th scope="row">事業者名</th><td>Luno Works（ルノワークス）</td></tr>
+            <tr><th scope="row">事業内容</th><td>モバイル／Webアプリケーションの企画・開発・運営</td></tr>
+            <tr><th scope="row">プロダクト</th><td>tabilog ／ ほか順次リリース予定</td></tr>
+            <tr><th scope="row">お問い合わせ</th><td><a href="mailto:support@luno-works.com">support@luno-works.com</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap narrow contact">
+        <div class="section-head" style="margin:0 auto;">
+          <p class="kicker">Contact</p>
+          <h2 style="margin-bottom:16px;">お問い合わせ</h2>
+          <p class="sub">
+            プロダクトに関するご質問・ご要望、取材・協業のご相談は、
+            メールにて承ります。
+          </p>
+        </div>
+        <p class="mail"><a href="mailto:support@luno-works.com">support@luno-works.com</a></p>
+        <p class="note">通常2〜3営業日以内にご返信いたします。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="top">
+        <a class="brand" href="/" style="font-size:16px;color:var(--ink);" aria-label="Luno Works ホーム">
+          <span class="mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="18" height="18" rx="5"/>
+              <path d="M7 6v10h7"/>
+            </svg>
+          </span>
+          <span>Luno Works</span>
+        </a>
+        <nav aria-label="フッターナビゲーション">
+          <a href="#products">プロダクト</a>
+          <a href="#company">会社概要</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="privacy-policy.html">プライバシーポリシー</a>
+        </nav>
+      </div>
+      <div class="legal">© 2026 Luno Works. All rights reserved.</div>
+    </div>
   </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('menuToggle');
+      var nav = document.getElementById('mobileNav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'メニューを開く');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
