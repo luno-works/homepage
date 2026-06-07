@@ -1,0 +1,318 @@
+/* ============================================================
+   失効ウォッチ — 法務ページ共通スタイル
+   デザインの単一ソース design/tokens.css をミラー（白基調・Apple/HIG）。
+   luno-works.com/shikko-watch/ 配下に配置（相対リンクでマウント位置非依存）。
+   ============================================================ */
+
+:root {
+  --bg-grouped: #ffffff;
+  --surface-card: #ffffff;
+  --separator: #ececef;
+  --separator-strong: #dedee3;
+
+  --text-primary: #1c1c1e;
+  --text-secondary: #6e6e76;
+  --text-tertiary: #a9a9b0;
+
+  --accent: #4f46e5;
+  --accent-press: #4338ca;
+  --accent-weak: #eef0fe;
+  --accent-border: #dadbfb;
+
+  --safe: #11a56a;
+
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+
+  --gutter: 20px;
+  --maxw: 760px;
+
+  --shadow-card: 0 1px 2px rgba(17, 17, 19, 0.04), 0 1px 1px rgba(17, 17, 19, 0.03);
+  --shadow-raised: 0 4px 16px rgba(17, 17, 19, 0.08);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color-scheme: light;
+  background: var(--bg-grouped);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 64px;
+}
+
+/* ---- ヘッダ（ブランドマーク＋ワードマーク） ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 0 20px;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  display: block;
+  border-radius: 11px;
+  box-shadow: var(--shadow-card);
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-tag {
+  margin-top: 1px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ---- ページ見出し ---- */
+.page-title {
+  margin: 8px 0 4px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-meta {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+/* ---- 本文カード ---- */
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--separator);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  padding: 8px 24px 24px;
+}
+
+.lead {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+section {
+  padding-top: 20px;
+}
+
+section + section {
+  border-top: 1px solid var(--separator);
+  margin-top: 20px;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h2 .num {
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+h3 {
+  margin: 18px 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+p {
+  margin: 8px 0;
+}
+
+ul {
+  margin: 8px 0;
+  padding-left: 1.25em;
+}
+
+li {
+  margin: 4px 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-tertiary);
+  font-size: 0.92em;
+}
+
+code {
+  background: var(--accent-weak);
+  color: var(--accent-press);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+/* ---- 注記 / バッジ ---- */
+.note {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: var(--accent-weak);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-md);
+  font-size: 13px;
+  color: var(--accent-press);
+}
+
+.todo {
+  background: #fcf4e6;
+  border-color: #f3ddb0;
+  color: #8a5a00;
+}
+
+/* ---- 定義リスト（特商法表記） ---- */
+dl.facts {
+  margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+}
+
+dl.facts > dt {
+  padding: 14px 0;
+  border-top: 1px solid var(--separator);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+dl.facts > dd {
+  padding: 14px 0;
+  margin: 0;
+  border-top: 1px solid var(--separator);
+}
+
+dl.facts > dt:first-of-type,
+dl.facts > dd:first-of-type {
+  border-top: none;
+}
+
+/* ---- ページ間ナビ（ハブ＆フッタ） ---- */
+.tiles {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--separator);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-card);
+  padding: 16px 18px;
+  color: var(--text-primary);
+}
+
+.tile:hover {
+  text-decoration: none;
+  border-color: var(--accent-border);
+}
+
+.tile .t-ic {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--accent-weak);
+  color: var(--accent);
+}
+
+.tile .t-body {
+  flex: 1;
+}
+
+.tile .t-title {
+  font-weight: 600;
+}
+
+.tile .t-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.tile .t-chev {
+  color: var(--text-tertiary);
+}
+
+.site-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--separator-strong);
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.site-footer nav {
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.back {
+  display: inline-block;
+  margin: 18px 0 0;
+  font-size: 14px;
+}
+
+@media (max-width: 540px) {
+  .page-title {
+    font-size: 24px;
+  }
+  dl.facts {
+    grid-template-columns: 1fr;
+  }
+  dl.facts > dd {
+    padding-top: 0;
+    border-top: none;
+  }
+  dl.facts > dt {
+    padding-bottom: 2px;
+  }
+}
