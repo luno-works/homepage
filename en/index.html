@@ -1,519 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luno Works｜Software Studio</title>
-  <meta name="description" content="Luno Works is a software studio that plans, develops, and operates web and mobile apps. Starting with our first product, tabilog, we craft new products with care and release them one by one.">
-  <link rel="canonical" href="https://luno-works.com/en/">
-  <meta property="og:title" content="Luno Works｜Software Studio">
-  <meta property="og:description" content="A software studio that plans, develops, and operates web and mobile apps. New products delivered one by one.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://luno-works.com/en/">
-  <meta property="og:locale" content="en_US">
-  <meta name="theme-color" content="#ffffff">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --accent: #0066cc;
-      --accent-press: #0055b3;
-      --ink: #1d1d1f;
-      --muted: #6e6e73;
-      --line: #d2d2d7;
-      --line-soft: #e8e8ed;
-      --bg: #ffffff;
-      --bg-alt: #f5f5f7;
-      --header-h: 52px;
-      --maxw: 1080px;
-    }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-                   Helvetica, Arial, sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--ink);
-      background: var(--bg);
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img, svg { display: block; }
-    h1, h2, h3 { letter-spacing: -0.02em; }
-    ::selection { background: rgba(0,102,204,0.14); }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-    .narrow { max-width: 720px; }
-
-    /* link with chevron — "Learn more ›" */
-    .link {
-      color: var(--accent); font-size: 17px; font-weight: 400;
-      display: inline-flex; align-items: center; gap: 3px;
-    }
-    .link:hover { text-decoration: none; }
-    .link:hover .label { text-decoration: underline; }
-    .link .chev { transition: transform .2s ease; font-style: normal; }
-    .link:hover .chev { transform: translateX(2px); }
-
-    /* ---------- Header ---------- */
-    header.site {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    header.site .wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      height: var(--header-h);
-    }
-    .brand {
-      display: flex; align-items: center; gap: 9px;
-      font-weight: 600; font-size: 19px; color: var(--ink); letter-spacing: -0.02em;
-    }
-    .brand:hover { text-decoration: none; }
-    .brand .mark { color: var(--ink); }
-    nav.menu { display: flex; gap: 34px; font-size: 14px; }
-    nav.menu a { color: var(--ink); opacity: 0.82; }
-    nav.menu a:hover { opacity: 1; text-decoration: none; }
-    .menu-toggle {
-      display: none; background: none; border: 0; padding: 8px; cursor: pointer;
-      color: var(--ink);
-    }
-    .mobile-nav { display: none; }
-
-    @media (max-width: 720px) {
-      nav.menu { display: none; }
-      .menu-toggle { display: inline-flex; }
-      .mobile-nav {
-        display: block; border-bottom: 1px solid rgba(0,0,0,0.08);
-        background: rgba(255,255,255,0.96);
-        backdrop-filter: saturate(180%) blur(20px);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        position: sticky; top: var(--header-h); z-index: 99;
-        max-height: 0; overflow: hidden; transition: max-height .28s ease;
-      }
-      .mobile-nav.open { max-height: 320px; }
-      .mobile-nav a {
-        display: block; padding: 15px 24px; color: var(--ink);
-        font-size: 16px; border-top: 1px solid var(--line);
-      }
-      .mobile-nav a:first-child { border-top: 0; }
-      .mobile-nav a:hover { text-decoration: none; background: var(--bg-alt); }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero { padding: 132px 0 116px; text-align: center; }
-    .hero .eyebrow {
-      font-size: 15px; font-weight: 600; color: var(--muted);
-      letter-spacing: 0.04em; margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: 58px; line-height: 1.06; font-weight: 700;
-      letter-spacing: -0.028em; margin-bottom: 28px;
-    }
-    .hero p.lead {
-      font-size: 21px; line-height: 1.52; color: var(--muted);
-      max-width: 660px; margin: 0 auto 40px;
-    }
-    .cta { display: inline-flex; gap: 28px; flex-wrap: wrap; justify-content: center; align-items: center; }
-    .btn {
-      display: inline-block; padding: 12px 26px; border-radius: 980px;
-      font-size: 16px; font-weight: 500; transition: background .2s ease;
-    }
-    .btn.primary { background: var(--accent); color: #fff; }
-    .btn.primary:hover { background: var(--accent-press); text-decoration: none; }
-
-    /* ---------- Sections ---------- */
-    section { padding: 110px 0; }
-    .section-alt { background: var(--bg-alt); }
-    .section-head { max-width: 740px; }
-    .section-head .kicker {
-      font-size: 14px; font-weight: 600; color: var(--accent);
-      margin-bottom: 14px; letter-spacing: 0.02em; text-transform: uppercase;
-    }
-    section h2 {
-      font-size: 42px; line-height: 1.1; font-weight: 700;
-      letter-spacing: -0.024em; margin-bottom: 22px;
-    }
-    section .sub { font-size: 19px; line-height: 1.62; color: var(--muted); }
-
-    /* About / values */
-    .values {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px; margin-top: 76px;
-    }
-    .value {
-      padding: 36px 32px;
-      background: var(--bg);
-      border: 1px solid var(--line-soft);
-      border-radius: 16px;
-    }
-    .value .vico { width: 32px; height: 32px; color: var(--ink); margin-bottom: 24px; }
-    .value h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.015em; }
-    .value p { font-size: 16px; line-height: 1.65; color: var(--muted); }
-
-    /* ---------- Products ---------- */
-    .product-list { margin-top: 68px; display: flex; flex-direction: column; gap: 24px; }
-    .product-card {
-      background: var(--bg); border: 1px solid var(--line); border-radius: 18px;
-      overflow: hidden;
-      display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: stretch;
-    }
-    .product-card .body { padding: 60px; align-self: center; }
-    .product-card .tag {
-      display: inline-block; font-size: 12px; font-weight: 600; color: var(--muted);
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px;
-    }
-    .product-card h3 {
-      font-size: 32px; font-weight: 700; letter-spacing: -0.022em; margin-bottom: 8px;
-      display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
-    }
-    .product-card h3 .romaji { color: var(--muted); font-weight: 500; font-size: 0.6em; letter-spacing: 0; }
-    .product-card .catch { font-size: 20px; color: var(--ink); margin-bottom: 18px; font-weight: 500; letter-spacing: -0.01em; }
-    .product-card .desc { font-size: 16px; line-height: 1.65; color: var(--muted); margin-bottom: 26px; }
-    .product-card ul.feat { list-style: none; margin-bottom: 30px; }
-    .product-card ul.feat li {
-      display: flex; align-items: flex-start; gap: 13px;
-      font-size: 16px; color: var(--ink); padding: 11px 0;
-      border-top: 1px solid var(--line-soft);
-    }
-    .product-card ul.feat li:first-child { border-top: 0; }
-    .product-card ul.feat li svg { flex-shrink: 0; margin-top: 4px; color: var(--accent); }
-    .product-card .meta { font-size: 14px; color: var(--muted); }
-
-    /* product visual — brand logo on its native cream backdrop */
-    .product-visual {
-      background: #f7f4ea;
-      border-left: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: center;
-      padding: 48px; min-height: 360px;
-    }
-    .product-visual img { width: 100%; max-width: 340px; height: auto; }
-
-    /* coming-soon card */
-    .product-card.soon { grid-template-columns: 1fr; }
-    .product-card.soon .body {
-      padding: 56px 60px; display: flex; flex-direction: column;
-      align-items: flex-start; gap: 14px;
-    }
-    .product-card.soon .soon-head { display: flex; align-items: center; gap: 16px; }
-    .product-card.soon .soon-icon {
-      width: 46px; height: 46px; border-radius: 12px;
-      border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
-      color: var(--muted); flex-shrink: 0;
-    }
-    .product-card.soon h3 { font-size: 24px; margin: 0; display: block; }
-    .product-card.soon p { font-size: 16px; color: var(--muted); line-height: 1.65; max-width: 640px; }
-
-    /* ---------- Company table ---------- */
-    table.info { width: 100%; border-collapse: collapse; margin-top: 60px; }
-    table.info th, table.info td {
-      border-top: 1px solid var(--line); padding: 24px 4px;
-      text-align: left; vertical-align: top; font-size: 16px;
-    }
-    table.info tr:last-child th, table.info tr:last-child td { border-bottom: 1px solid var(--line); }
-    table.info th { width: 32%; color: var(--muted); font-weight: 500; }
-    table.info td { color: var(--ink); }
-
-    /* ---------- Contact ---------- */
-    .contact { text-align: center; }
-    .contact .mail {
-      font-size: 34px; font-weight: 600; letter-spacing: -0.022em; margin: 28px 0 10px;
-    }
-    .contact .mail a { color: var(--accent); }
-    .contact .note { font-size: 15px; color: var(--muted); }
-
-    /* ---------- Footer ---------- */
-    footer.site {
-      background: var(--bg-alt); color: var(--muted);
-      font-size: 13px; line-height: 1.6; padding: 44px 0;
-      border-top: 1px solid var(--line);
-    }
-    footer.site .top {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 18px; padding-bottom: 20px;
-    }
-    footer.site nav { display: flex; gap: 26px; flex-wrap: wrap; }
-    footer.site nav a { color: var(--muted); }
-    footer.site nav a:hover { color: var(--ink); text-decoration: none; }
-    footer.site .legal { border-top: 1px solid var(--line); padding-top: 20px; }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .values { grid-template-columns: 1fr; gap: 12px; }
-      .product-card { grid-template-columns: 1fr; }
-      .product-visual { border-left: 0; border-top: 1px solid var(--line); order: -1; min-height: 260px; padding: 44px; }
-      .product-card .body { padding: 44px; }
-    }
-    @media (max-width: 720px) {
-      body { font-size: 16px; }
-      .hero { padding: 84px 0 76px; }
-      .hero h1 { font-size: 38px; }
-      .hero p.lead { font-size: 18px; }
-      .cta { gap: 20px; }
-      section { padding: 76px 0; }
-      section h2 { font-size: 30px; }
-      section .sub { font-size: 17px; }
-      .values { margin-top: 48px; }
-      .value { padding: 30px 26px; }
-      .product-card .body { padding: 36px; }
-      .product-card h3 { font-size: 27px; }
-      .product-card.soon .body { padding: 36px; }
-      .contact .mail { font-size: 23px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Luno Works｜tabilog, Shikko Watch, Stackly, gamanline</title>
+<meta name="description" content="Luno Works builds small tools that make the things worth keeping track of visible: tabilog for travel, Shikko Watch for expiry dates, Stackly for shared inventory, and gamanline for a noise self-check.">
+<link rel="canonical" href="https://luno-works.com/en/">
+<link rel="alternate" hreflang="en" href="https://luno-works.com/en/">
+<link rel="alternate" hreflang="ja" href="https://luno-works.com/">
+<link rel="alternate" hreflang="x-default" href="https://luno-works.com/">
+<meta name="theme-color" content="#101A2E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Luno Works">
+<meta property="og:title" content="Things worth keeping track of, made visible.｜Luno Works">
+<meta property="og:description" content="Places you have been. Expiry dates on what you can still use. What your family already owns. The noise where you live.">
+<meta property="og:url" content="https://luno-works.com/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://luno-works.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Things worth keeping track of, made visible.｜Luno Works">
+<meta name="twitter:description" content="Places you have been. Expiry dates on what you can still use. What your family already owns. The noise where you live.">
+<meta name="twitter:image" content="https://luno-works.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+1+Code:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Luno Works",
+"url":"https://luno-works.com/","email":"support@luno-works.com",
+"description":"A software studio building small tools that make the things worth keeping track of visible."}
+</script>
 </head>
 <body>
+<style>
+  :root{
+    --navy:#101A2E;         /* 抽象の世界の地 */
+    --navy-deep:#0A1220;
+    --dot:#8FB3E8;
+    --on-navy:#EAEFF8;
+    --on-navy-mute:#93A4C4;
+    --paper:#FBFAF9;        /* 実体の地 */
+    --ink:#151A26;
+    --muted:#5A6373;
+    --faint:#8B94A3;
+    --hair:#E3E6EC;
+    --brand:#1D3461;
+    --tint:#F4F6FA;
+    --maxw:1080px;
+    --beat:100svh;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+    text-underline-offset:3px}
+  a{color:inherit}
+  :focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:3px}
+  img{display:block;max-width:100%}
+  p{margin:0 0 1em;text-wrap:pretty}
+  h1,h2,h3{text-wrap:balance;margin:0}
+  .mono{font-family:"M PLUS 1 Code",ui-monospace,Menlo,monospace;font-feature-settings:"palt" 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+    padding:12px 18px;z-index:99;border-radius:0 0 8px 0}
+  .skip:focus{left:0}
 
-  <header class="site">
-    <div class="wrap">
-      <a class="brand" href="/en/" aria-label="Luno Works home">
-        <span class="mark" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="18" height="18" rx="5"/>
-            <path d="M7 6v10h7"/>
-          </svg>
-        </span>
-        <span>Luno Works</span>
-      </a>
-      <nav class="menu" aria-label="Main navigation">
-        <a href="#about">Mission</a>
-        <a href="#products">Products</a>
-        <a href="#company">Company</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <path d="M3 7h16M3 15h16"/>
-        </svg>
-      </button>
+  /* ============ ヘッダー ============ */
+  .site{position:absolute;top:0;left:0;right:0;z-index:6;padding:22px 0}
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--on-navy);text-decoration:none;
+    font-weight:700;font-size:17px;letter-spacing:.01em}
+  .brand svg{flex:0 0 auto}
+  .site nav{display:flex;gap:22px;font-size:13.5px}
+  .site nav a{color:var(--on-navy-mute);text-decoration:none;transition:color .2s}
+  .site nav a:hover{color:var(--on-navy)}
+  .site nav a.lang{border:1px solid rgba(234,239,248,.28);border-radius:999px;
+    padding:3px 11px;font-family:"M PLUS 1 Code",monospace;font-size:11.5px;letter-spacing:.08em}
+  .site nav a.lang:hover{border-color:rgba(234,239,248,.6)}
+  @media (max-width:720px){ .site nav{display:none} }
+
+  /* ============ 抽象の世界（点のステージ） ============ */
+  .stage{position:relative;background:var(--navy);color:var(--on-navy)}
+  .stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22vh;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(16,26,46,0),var(--paper))}
+  .pin{position:sticky;top:0;height:100svh;z-index:0}
+  .pin canvas{display:block;width:100%;height:100%}
+  /* 文字背後の暗がり(.wrap::before)が左右にはみ出すため、ここで切る。
+     clip は overflow:hidden と違いスクロールコンテナを作らないので sticky を壊さない。 */
+  .beats{position:relative;z-index:1;margin-top:-100svh;overflow-x:clip}
+  .beat{min-height:var(--beat);display:grid;align-content:center;padding:14svh 0}
+  .beat .wrap{max-width:760px;position:relative}
+  /* 文字の背後だけ地色を濃くして可読性を確保する（点は周囲に残す） */
+  .beat .wrap::before{content:"";position:absolute;inset:-10% -8%;z-index:-1;pointer-events:none;
+    background:radial-gradient(58% 52% at 38% 50%,
+      rgba(16,26,46,.95) 0%, rgba(16,26,46,.82) 42%, rgba(16,26,46,0) 76%)}
+
+  .hero h1{font-size:clamp(30px,6.2vw,60px);line-height:1.35;font-weight:700;letter-spacing:-.01em}
+  .hero .sub{margin:26px 0 0;font-size:clamp(15px,1.7vw,17.5px);color:var(--on-navy-mute);max-width:34em}
+  .hero .cue{margin-top:44px;display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.12em;color:var(--on-navy-mute)}
+  .hero .cue span{display:block;width:1px;height:34px;background:currentColor;opacity:.5;
+    animation:cue 2.4s cubic-bezier(.65,0,.35,1) infinite}
+  @keyframes cue{0%{transform:scaleY(.2);transform-origin:0 0}
+    45%{transform:scaleY(1);transform-origin:0 0}
+    55%{transform:scaleY(1);transform-origin:0 100%}
+    100%{transform:scaleY(.2);transform-origin:0 100%}}
+
+  .act .q{font-size:clamp(24px,4.6vw,44px);font-weight:700;line-height:1.5;letter-spacing:-.005em}
+  .act .a{margin:20px 0 0;font-size:clamp(15px,1.9vw,19px);color:var(--on-navy-mute)}
+  .act .a b{color:var(--on-navy);font-weight:500}
+  .act .tag{font-size:11.5px;letter-spacing:.14em;color:var(--on-navy-mute);opacity:.75;
+    margin:0 0 18px;display:block}
+
+  /* 行ごとに立ち上がる見出し */
+  .up{display:block;overflow:hidden}
+  .up > i{display:block;font-style:normal;transform:translateY(105%);opacity:0;
+    transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .7s ease}
+  .on .up > i{transform:none;opacity:1}
+  .on .up:nth-child(2) > i{transition-delay:.08s}
+  .on .up:nth-child(3) > i{transition-delay:.16s}
+  .fade{opacity:0;transform:translateY(14px);
+    transition:opacity .8s ease .18s,transform .8s cubic-bezier(.16,1,.3,1) .18s}
+  .on .fade{opacity:1;transform:none}
+
+  /* ============ 実体（白） ============ */
+  .light{background:var(--paper);position:relative;z-index:2}
+  section.blk{padding:min(15vh,130px) 0}
+  .eyebrow{font-family:"M PLUS 1 Code",monospace;font-size:11.5px;letter-spacing:.16em;
+    color:var(--faint);margin:0 0 16px;display:block}
+  h2.t{font-size:clamp(23px,3.2vw,32px);font-weight:700;line-height:1.5;margin:0 0 14px}
+  .lead{color:var(--muted);max-width:38em;margin:0}
+
+  /* つくったもの */
+  .works{margin-top:54px;display:grid;gap:18px}
+  .work{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:start;
+    padding:26px 4px;border-top:1px solid var(--hair)}
+  .work:last-child{border-bottom:1px solid var(--hair)}
+  .work img{width:64px;height:64px;border-radius:15px;border:1px solid var(--hair)}
+  .work .nm{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .work .nm h3{font-size:19px;font-weight:700}
+  .work .nm h3 .rom{font-weight:400;font-size:14px;color:var(--faint);margin-left:2px}
+  .work .nm .kind{font-size:11.5px;letter-spacing:.1em;color:var(--faint)}
+  .work .cat{margin:8px 0 0;font-size:16px;font-weight:500}
+  .work .dsc{margin:8px 0 0;font-size:14.5px;color:var(--muted);max-width:34em}
+  .work .meta{margin:12px 0 0;font-size:12.5px;color:var(--faint)}
+  .work .meta a{color:var(--muted)}
+  /* ストアバッジは公式アートワークをそのまま使う（改変・角丸・色変更をしない）。
+     余白はバッジ高さの 1/4 以上（Apple 規定）、App Store を先頭に置く（同規定）。
+     Google Play の画像は内側に余白を含むため、実寸が揃う高さで表示する。 */
+  .acts{display:flex;flex-direction:column;gap:12px;align-items:flex-start;min-width:168px}
+  .badge{display:inline-flex;line-height:0;border-radius:8px}
+  .badge img{display:block;width:auto;height:44px}
+  .badge.gp img{height:65px;margin:-10.5px 0}
+  .badge:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+  .btn{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;
+    min-height:44px;padding:10px 16px;border-radius:10px;text-decoration:none;
+    font-size:13.5px;font-weight:500;border:1px solid var(--hair);color:var(--ink);
+    background:#fff;transition:border-color .2s,transform .2s}
+  .btn:hover{border-color:var(--brand);transform:translateY(-1px)}
+  .btn.p{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .btn.p:hover{background:#16294D}
+  .btn .ar{opacity:.6}
+  @media (max-width:820px){
+    .work{grid-template-columns:52px 1fr;gap:16px}
+    .work img{width:52px;height:52px;border-radius:12px}
+    .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;min-width:0;margin-top:8px}
+    .btn{flex:1 1 auto;min-width:140px}
+  }
+
+  /* つくり方 */
+  .vals{margin-top:50px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px}
+  .val h3{font-size:16.5px;font-weight:700;margin:0 0 10px}
+  .val .num{font-family:"M PLUS 1 Code",monospace;font-size:12px;color:var(--brand);
+    display:block;margin-bottom:12px;letter-spacing:.1em}
+  .val p{font-size:14.5px;color:var(--muted);margin:0}
+
+  /* 運営者情報 */
+  .info{margin-top:44px;width:100%;border-collapse:collapse;font-size:15px}
+  .info th,.info td{text-align:left;vertical-align:top;padding:16px 8px;border-top:1px solid var(--hair)}
+  .info th{width:11em;font-weight:500;color:var(--muted);font-size:14px;white-space:nowrap}
+  .info tr:last-child td,.info tr:last-child th{border-bottom:1px solid var(--hair)}
+  @media (max-width:600px){
+    .info,.info tbody,.info tr,.info th,.info td{display:block;width:auto}
+    .info th{border-top:1px solid var(--hair);padding-bottom:0;border-bottom:0}
+    .info td{padding-top:4px;border-top:0}
+    .info tr:last-child td{border-bottom:1px solid var(--hair)}
+  }
+
+  /* お問い合わせ・フッター */
+  .end{background:var(--navy);color:var(--on-navy);position:relative;z-index:2}
+  .end .blk{padding:min(14vh,120px) 0 0}
+  .end h2.t{color:var(--on-navy)}
+  .end .lead{color:var(--on-navy-mute)}
+  .mail{display:inline-block;margin:26px 0 0;font-size:clamp(20px,3.4vw,32px);font-weight:700;
+    color:var(--on-navy);text-decoration:none;border-bottom:1px solid rgba(234,239,248,.35);
+    padding-bottom:6px;transition:border-color .2s}
+  .mail:hover{border-color:var(--on-navy)}
+  .note{margin:18px 0 0;font-size:13.5px;color:var(--on-navy-mute)}
+  footer.site-f{margin-top:min(12vh,100px);padding:34px 0 46px;
+    border-top:1px solid rgba(234,239,248,.14);font-size:12.5px;color:var(--on-navy-mute)}
+  footer.site-f .row{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;
+    justify-content:space-between}
+  footer.site-f nav{display:flex;flex-wrap:wrap;gap:14px 22px}
+  footer.site-f a{color:var(--on-navy-mute);text-decoration:none;border-bottom:1px solid transparent}
+  footer.site-f a:hover{color:var(--on-navy);border-color:currentColor}
+  footer.site-f .cred{margin-top:22px;font-size:11.5px;opacity:.7;line-height:1.8}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.001ms!important}
+    .up > i{transform:none;opacity:1}
+    .fade{opacity:1;transform:none}
+  }
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor"
+           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="18" height="18" rx="5"/><path d="M7 6v10h7"/>
+      </svg>
+      <span>Luno Works</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#works">Products</a>
+      <a href="#how">Principles</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="lang" href="/" hreflang="ja" lang="ja">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<!-- ============ 抽象の世界 ============ -->
+<section class="stage" id="stage">
+  <div class="pin"><canvas id="cv" aria-hidden="true"></canvas></div>
+  <div class="beats">
+
+    <div class="beat hero" data-beat="0">
+      <div class="wrap">
+        <h1><span class="up"><i>Things worth keeping</i></span><span class="up"><i>track of, made visible.</i></span></h1>
+        <p class="sub fade">Places you have been. Expiry dates on what you can still use. What your family already owns. The noise where you live. Small tools that put these in plain sight.</p>
+        <p class="cue fade mono"><span aria-hidden="true"></span>SCROLL</p>
+      </div>
     </div>
-  </header>
 
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <a href="#about">Mission</a>
-    <a href="#products">Products</a>
-    <a href="#company">Company</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
+    <div class="beat act" data-beat="1">
       <div class="wrap">
-        <p class="eyebrow">Software Studio</p>
-        <h1>Software that gives<br>experiences a form.</h1>
-        <p class="lead">
-          Luno Works is a studio that plans, develops, and operates web and
-          mobile apps to help you keep everyday experiences in a way that feels good.
-          With careful craftsmanship, we deliver new products one by one.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#products">View products</a>
-          <a class="link" href="#about"><span class="label">About us</span><span class="chev" aria-hidden="true">&rsaquo;</span></a>
-        </div>
+        <span class="tag mono fade">01 — TABILOG</span>
+        <p class="q"><span class="up"><i>Your travels, on a map.</i></span></p>
+        <p class="a fade">The dots become a route. <b>Prefectures you have visited are filled in, with photos and notes attached to each.</b></p>
       </div>
-    </section>
+    </div>
 
-    <!-- About / Mission -->
-    <section id="about" class="section-alt">
+    <div class="beat act" data-beat="2">
       <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Mission</p>
-          <h2>Make recording<br>feel effortless.</h2>
-          <p class="sub">
-            We build products that help you gently keep your daily experiences and
-            memories. Respecting privacy and holding to a simple, intuitive design,
-            we nurture software that lasts, with care.
-          </p>
-        </div>
-        <div class="values">
-          <div class="value">
-            <span class="vico" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 28c5.6-5.6 9-10 9-14.4A9 9 0 0 0 7 13.6C7 18 10.4 22.4 16 28Z"/>
-                <circle cx="16" cy="13.4" r="3.2"/>
-              </svg>
-            </span>
-            <h3>Giving experiences form</h3>
-            <p>We design experiences that let you keep the places you've visited and everyday moments in a way that's a pleasure to look back on later.</p>
-          </div>
-          <div class="value">
-            <span class="vico" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="7" y="14.5" width="18" height="12.5" rx="2.6"/>
-                <path d="M11 14.5v-3.5a5 5 0 0 1 10 0v3.5"/>
-                <path d="M16 20v2.6"/>
-              </svg>
-            </span>
-            <h3>Privacy first</h3>
-            <p>We don't track you for behavioral analytics. We collect only the information needed to provide the features themselves.</p>
-          </div>
-          <div class="value">
-            <span class="vico" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 5l2.7 5.5 6.1.9-4.4 4.3 1 6.1L16 23l-5.4 2.9 1-6.1L7.2 11.4l6.1-.9L16 5Z"/>
-              </svg>
-            </span>
-            <h3>Crafted with care</h3>
-            <p>Simple, intuitive interactions and a pleasant feel. We keep delivering products polished down to the smallest detail.</p>
-          </div>
-        </div>
+        <span class="tag mono fade">02 — 失効ウォッチ</span>
+        <p class="q"><span class="up"><i>What you can still use, by deadline.</i></span></p>
+        <p class="a fade">The dots become a ticket. <b>Shareholder perks, gift certificates and vouchers line up in a single list, whatever their type.</b></p>
       </div>
-    </section>
+    </div>
 
-    <!-- Products -->
-    <section id="products">
+    <div class="beat act" data-beat="3">
       <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Products</p>
-          <h2>Products</h2>
-          <p class="sub">
-            Here are the apps we build. These are the first steps of products that will keep coming.
-          </p>
-        </div>
-
-        <div class="product-list">
-          <!-- tabilog -->
-          <article class="product-card">
-            <div class="body">
-              <span class="tag">First product</span>
-              <h3>tabilog</h3>
-              <p class="catch">Map your travels across Japan.</p>
-              <p class="desc">
-                A travel-logging app that records the prefectures you've visited,
-                trip titles, dates, notes, photos, and videos — and lets you share
-                a memory album with friends.
-              </p>
-              <ul class="feat">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
-                  <span>Look back on the prefectures you've visited on a map</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
-                  <span>Record trip notes with photos and videos</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
-                  <span>Invite friends and share albums</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5l3.5 3.5L14.5 5.5"/></svg>
-                  <span>A free plan (3GB) plus paid plans</span>
-                </li>
-              </ul>
-              <p class="meta">App for iOS / Android</p>
-            </div>
-            <div class="product-visual">
-              <img src="../assets/tabilog-icon.png" width="340" height="340" loading="lazy" alt="tabilog logo">
-            </div>
-          </article>
-
-          <!-- Coming soon -->
-          <article class="product-card soon">
-            <div class="body">
-              <div class="soon-head">
-                <span class="soon-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M11 5v6l4 2"/>
-                    <circle cx="11" cy="11" r="8"/>
-                  </svg>
-                </span>
-                <div>
-                  <span class="tag" style="margin-bottom:2px;">Coming soon</span>
-                  <h3>Next product in development</h3>
-                </div>
-              </div>
-              <p>
-                Luno Works will continue to release several web and mobile apps one by one.
-                We'll announce details about new products here on this site and on each app store.
-              </p>
-            </div>
-          </article>
-        </div>
+        <span class="tag mono fade">03 — STACKLY</span>
+        <p class="q"><span class="up"><i>Never buy the same thing twice.</i></span></p>
+        <p class="a fade">The dots overlap into stripes. <b>Scan a barcode in the store and it tells you whether your group already has it.</b></p>
       </div>
-    </section>
+    </div>
 
-    <!-- Company -->
-    <section id="company" class="section-alt">
+    <div class="beat act" data-beat="4">
       <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Company</p>
-          <h2>Company</h2>
-          <p class="sub">Our business information is as follows.</p>
-        </div>
-        <table class="info">
-          <tbody>
-            <tr><th scope="row">Name</th><td>Luno Works</td></tr>
-            <tr><th scope="row">Business</th><td>Planning, development, and operation of mobile and web applications</td></tr>
-            <tr><th scope="row">Products</th><td>tabilog / more to be released</td></tr>
-            <tr><th scope="row">Contact</th><td><a href="mailto:support@luno-works.com">support@luno-works.com</a></td></tr>
-          </tbody>
-        </table>
+        <span class="tag mono fade">04 — GAMANLINE</span>
+        <p class="q"><span class="up"><i>A reference point for noise.</i></span></p>
+        <p class="a fade">The dots become a waveform. <b>Answer a few multiple-choice questions to see whether it falls within the range of ordinary household sound.</b></p>
       </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="wrap narrow contact">
-        <div class="section-head" style="margin:0 auto;">
-          <p class="kicker">Contact</p>
-          <h2 style="margin-bottom:16px;">Contact</h2>
-          <p class="sub">
-            For questions or requests about our products, or inquiries about press
-            and collaboration, please reach us by email.
-          </p>
+  </div>
+</section>
+
+<!-- ============ 実体 ============ -->
+<div class="light">
+
+<section class="blk" id="works">
+  <div class="wrap">
+    <span class="eyebrow">PRODUCTS</span>
+    <h2 class="t">Products</h2>
+    <p class="lead">Four, all published. Each one is built to do a single job. They are made for the Japanese market.</p>
+
+    <div class="works">
+
+      <article class="work">
+        <img src="../assets/icon-tabilog.png" width="64" height="64" alt="tabilog icon">
+        <div>
+          <div class="nm"><h3>tabilog</h3><span class="kind mono">Travel log / iOS &amp; Android</span></div>
+          <p class="cat">Map your travels across Japan.</p>
+          <p class="dsc">Fill in the prefectures you have visited on a map of Japan, and share photos, videos and notes with the people you travelled with. Invite friends and build one album together.</p>
+          <p class="meta">Free (3GB) + Basic ¥480/month and up (auto-renewing)　·　<a href="/tabilog/" hreflang="ja">Privacy &amp; Terms (Japanese)</a></p>
         </div>
-        <p class="mail"><a href="mailto:support@luno-works.com">support@luno-works.com</a></p>
-        <p class="note">We typically reply within 2–3 business days.</p>
-      </div>
-    </section>
-  </main>
+        <div class="acts">
+          <a class="badge" href="https://apps.apple.com/jp/app/id6783845985" target="_blank" rel="noopener">
+            <img src="../assets/badge-appstore-en.svg" width="132" height="44" alt="Download on the App Store">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.tabilog" target="_blank" rel="noopener">
+            <img src="../assets/badge-googleplay-en.png" width="168" height="65" alt="Get it on Google Play">
+          </a>
+        </div>
+      </article>
 
-  <footer class="site">
-    <div class="wrap">
-      <div class="top">
-        <a class="brand" href="/en/" style="font-size:16px;color:var(--ink);" aria-label="Luno Works home">
-          <span class="mark" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="18" height="18" rx="5"/>
-              <path d="M7 6v10h7"/>
-            </svg>
-          </span>
-          <span>Luno Works</span>
-        </a>
-        <nav aria-label="Footer navigation">
-          <a href="#products">Products</a>
-          <a href="#company">Company</a>
-          <a href="#contact">Contact</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
+      <article class="work">
+        <img src="../assets/icon-shikko-watch.png" width="64" height="64" alt="Shikko Watch icon">
+        <div>
+          <div class="nm"><h3>失効ウォッチ<span class="rom"> Shikko Watch</span></h3><span class="kind mono">Expiry tracking / iOS &amp; Android</span></div>
+          <p class="cat">Use what you have, before it expires.</p>
+          <p class="dsc">Shareholder perks, hometown-tax return gifts, gift certificates and vouchers, lined up by deadline across every type. See the total you can still use at a glance. Asset data stays on the device.</p>
+          <p class="meta">Free + one-time purchase Pro　·　<a href="/shikko-watch/" hreflang="ja">Privacy &amp; Terms (Japanese)</a></p>
+        </div>
+        <div class="acts">
+          <a class="badge" href="https://apps.apple.com/jp/app/id6782328115" target="_blank" rel="noopener">
+            <img src="../assets/badge-appstore-en.svg" width="132" height="44" alt="Download on the App Store">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.shikkowatch" target="_blank" rel="noopener">
+            <img src="../assets/badge-googleplay-en.png" width="168" height="65" alt="Get it on Google Play">
+          </a>
+        </div>
+      </article>
+
+      <article class="work">
+        <img src="../assets/icon-stackly.png" width="64" height="64" alt="Stackly icon">
+        <div>
+          <div class="nm"><h3>Stackly</h3><span class="kind mono">Shared inventory / iOS &amp; Android</span></div>
+          <p class="cat">No more buying it twice.</p>
+          <p class="dsc">Share what your family or group already owns. Scan a barcode in the store and it tells you whether someone already has it, so duplicate gifts and second copies stop happening.</p>
+          <p class="meta">Free (item limit) + Premium (auto-renewing)　·　<a href="/en/stackly/">Privacy &amp; Terms</a></p>
+        </div>
+        <div class="acts">
+          <a class="badge" href="https://apps.apple.com/jp/app/id6793904271" target="_blank" rel="noopener">
+            <img src="../assets/badge-appstore-en.svg" width="132" height="44" alt="Download on the App Store">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.stackly" target="_blank" rel="noopener">
+            <img src="../assets/badge-googleplay-en.png" width="168" height="65" alt="Get it on Google Play">
+          </a>
+        </div>
+      </article>
+
+      <article class="work">
+        <img src="../assets/icon-gamanline.svg" width="64" height="64" alt="gamanline icon">
+        <div>
+          <div class="nm"><h3>gamanline</h3><span class="kind mono">Noise self-check / Web</span></div>
+          <p class="cat">That noise may be more than you should put up with.</p>
+          <p class="dsc">Answer a few multiple-choice questions to see whether the noise where you live falls within the range of ordinary household sound, or closer to environmental standards. No measurement, all in the browser.</p>
+          <p class="meta">Free, no login required (Japanese)　·　This is a rough guide, not medical, legal or real-estate advice.</p>
+        </div>
+        <div class="acts">
+          <a class="btn p" href="https://gamanline.com/" target="_blank" rel="noopener">Open in the browser<span class="ar" aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="how">
+  <div class="wrap">
+    <span class="eyebrow">PRINCIPLES</span>
+    <h2 class="t">Principles</h2>
+    <p class="lead">What all four have in common.</p>
+    <div class="vals">
+      <div class="val">
+        <span class="num">01</span>
+        <h3>One job, nothing more</h3>
+        <p>Deciding what not to build comes first. Each product opens straight to what it does, with only the features that job needs.</p>
+      </div>
+      <div class="val">
+        <span class="num">02</span>
+        <h3>Only the data the job needs</h3>
+        <p>Collection is limited to what is needed to provide and improve each feature. Shikko Watch keeps asset data on the device, and gamanline runs entirely in the browser with no login. Details are in each product&#39;s privacy policy.</p>
+      </div>
+      <div class="val">
+        <span class="num">03</span>
+        <h3>Kept in shape for the long run</h3>
+        <p>Shipping is not the end. Rather than piling on features, the shape that already works is left alone and the details are fixed, so these stay usable for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="about">
+  <div class="wrap">
+    <span class="eyebrow">ABOUT</span>
+    <h2 class="t">About</h2>
+    <p class="lead">The business behind this site and the four products.</p>
+    <table class="info">
+      <tbody>
+        <tr><th scope="row">Trade name</th><td>Luno Works</td></tr>
+        <tr><th scope="row">Business</th><td>Planning, development and operation of iOS, Android and web applications</td></tr>
+        <tr><th scope="row">Products</th><td>tabilog / 失効ウォッチ (Shikko Watch) / Stackly / gamanline</td></tr>
+        <tr><th scope="row">Contact</th><td><a href="mailto:support@luno-works.com">support@luno-works.com</a></td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:20px;font-size:13.5px">Statutory details such as the trader&#39;s name, address and phone number are published in <a href="/commerce/" hreflang="ja">the notice under the Act on Specified Commercial Transactions</a> (Japanese).</p>
+  </div>
+</section>
+
+</div><!-- /.light -->
+
+<section class="end" id="contact">
+  <div class="wrap blk">
+    <span class="eyebrow">CONTACT</span>
+    <h2 class="t">Reach us by email.</h2>
+    <p class="lead">Bug reports, requests and press enquiries all arrive at this address directly.</p>
+    <a class="mail" href="mailto:support@luno-works.com">support@luno-works.com</a>
+    <p class="note">We usually reply within 2–3 business days. Mentioning the product name helps.</p>
+
+    <footer class="site-f">
+      <div class="row">
+        <span>© 2026 Luno Works</span>
+        <nav aria-label="Footer">
+          <a href="/en/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms/" hreflang="ja">Terms (Japanese)</a>
+          <a href="/commerce/" hreflang="ja">Specified Commercial Transactions (Japanese)</a>
+          <a href="#about">About</a>
+          <a href="mailto:support@luno-works.com">Contact</a>
         </nav>
       </div>
-      <div class="legal">© 2026 Luno Works. All rights reserved.</div>
-    </div>
-  </footer>
+      <p class="cred">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </footer>
+  </div>
+</section>
+</main>
 
-  <script>
-    (function () {
-      var toggle = document.getElementById('menuToggle');
-      var nav = document.getElementById('mobileNav');
-      if (!toggle || !nav) return;
-      toggle.addEventListener('click', function () {
-        var open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      });
-      nav.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          nav.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.setAttribute('aria-label', 'Open menu');
-        });
-      });
-    })();
-  </script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---- 文字の立ち上がり ---- */
+  try{
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {threshold:.25, rootMargin:'0px 0px -8% 0px'});
+    Array.prototype.forEach.call(document.querySelectorAll('.beat'), function(el){ io.observe(el); });
+  }catch(e){
+    Array.prototype.forEach.call(document.querySelectorAll('.beat'), function(el){ el.classList.add('on'); });
+  }
+
+  /* ---- 点のステージ ---- */
+  var cv = document.getElementById('cv'), stage = document.getElementById('stage');
+  if(!cv || !stage || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var W=0,H=0,DPR=1,N=420,small=false;
+  var pts=[], prog=0, onScreen=true, rafId=0, needDraw=true;
+
+  function conf(){
+    small = innerWidth <= 720;
+    N = small ? 240 : 420;
+    DPR = Math.min(devicePixelRatio||1, small?2:2);
+    if(pts.length !== N){
+      pts = [];
+      for(var i=0;i<N;i++) pts.push({x:0,y:0,vx:0,vy:0,seeded:false});
+    }
+  }
+  function resize(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    if(!W||!H) return;
+    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    needDraw = true;
+  }
+  function hash(i){ var x=Math.sin(i*127.1+0.7)*43758.5453; return x-Math.floor(x); }
+
+  /* 5状態: 0=散在 1=旅の軌跡 2=券 3=縞 4=波形（正規化座標） */
+  function target(s,i){
+    var t=i/N, r1=hash(i), r2=hash(i+9.7);
+    if(s===0) return [0.06+r1*0.88, 0.10+r2*0.80];
+    if(s===1){
+      var x=0.16+t*0.68, y=0.66-t*0.28+Math.sin(t*Math.PI*2.2)*0.10;
+      if(i%13===0) return [x+(r1-0.5)*0.012, y-0.072-r2*0.028];
+      return [x+(r1-0.5)*0.010, y+(r2-0.5)*0.016];
+    }
+    if(s===2){
+      var seg=Math.floor(t*4), u=(t*4)%1;
+      var P=[[0.28,0.36],[0.72,0.36],[0.72,0.64],[0.28,0.64]];
+      var p=P[seg], q=P[(seg+1)%4];
+      return [p[0]+(q[0]-p[0])*u, p[1]+(q[1]-p[1])*u];
+    }
+    if(s===3){
+      var nb = small?9:13, col=Math.min(Math.floor(t*nb),nb-1), row=(i%26)/26;
+      var pitch=0.52/nb;
+      return [0.24+col*pitch+(hash(col)>0.6?pitch*0.16:0), 0.31+row*0.38];
+    }
+    var xw=0.14+t*0.72;
+    return [xw, 0.5+Math.sin(t*Math.PI*7)*0.19*(0.35+0.65*t)];
+  }
+
+  function progress(){
+    var r = stage.getBoundingClientRect();
+    var span = r.height - innerHeight;
+    if(span <= 0) return 0;
+    var p = -r.top / span;
+    return p<0?0:(p>1?1:p);
+  }
+
+  function draw(){
+    if(!W||!H){ resize(); if(!W||!H) return; }
+    var seg = Math.min(prog*4, 3.9999), idx = Math.floor(seg), mix = seg-idx;
+    var e = mix<0.5 ? 2*mix*mix : 1-Math.pow(-2*mix+2,2)/2;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#8FB3E8';
+    var sz = small?2.0:2.2, half = sz/2;
+    for(var i=0;i<N;i++){
+      var a=target(idx,i), b=target(Math.min(idx+1,4),i), p=pts[i];
+      var tx=(a[0]+(b[0]-a[0])*e)*W, ty=(a[1]+(b[1]-a[1])*e)*H;
+      if(!p.seeded || reduce){ p.x=tx; p.y=ty; p.vx=0; p.vy=0; p.seeded=true; }
+      else{
+        p.vx=(p.vx+(tx-p.x)*0.085)*0.80; p.vy=(p.vy+(ty-p.y)*0.085)*0.80;
+        p.x+=p.vx; p.y+=p.vy;
+      }
+      ctx.fillRect((p.x-half)|0, (p.y-half)|0, sz, sz);
+    }
+  }
+
+  function loop(){
+    rafId = 0;
+    var np = progress();
+    if(np !== prog){ prog = np; needDraw = true; }
+    if(needDraw || !reduce){ draw(); needDraw = false; }
+    if(onScreen && !reduce) rafId = requestAnimationFrame(loop);
+  }
+  function kick(){ if(!rafId && onScreen && !reduce) rafId = requestAnimationFrame(loop); }
+
+  function onResize(){ conf(); resize(); prog = progress(); draw(); kick(); }
+  try{ new ResizeObserver(onResize).observe(cv); }catch(e){ addEventListener('resize', onResize); }
+  try{
+    new IntersectionObserver(function(es){
+      onScreen = es[0].isIntersecting;
+      if(onScreen) kick();
+      else if(rafId){ cancelAnimationFrame(rafId); rafId=0; }
+    },{threshold:0}).observe(stage);
+  }catch(e){}
+  addEventListener('scroll', function(){
+    if(reduce){ prog = progress(); draw(); }
+    else kick();
+  }, {passive:true});
+
+  conf(); resize(); prog = progress(); draw(); kick();
+})();
+</script>
 </body>
 </html>

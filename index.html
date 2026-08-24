@@ -6,6 +6,9 @@
 <title>Luno Works｜tabilog・失効ウォッチ・Stackly・gamanline</title>
 <meta name="description" content="Luno Works（ルノワークス）は、暮らしの中で把握しておきたいことを、見える形にする道具をつくっています。旅の記録 tabilog、期限管理の失効ウォッチ、持ち物共有の Stackly、騒音の自己診断 gamanline を公開中。">
 <link rel="canonical" href="https://luno-works.com/">
+<link rel="alternate" hreflang="ja" href="https://luno-works.com/">
+<link rel="alternate" hreflang="en" href="https://luno-works.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://luno-works.com/">
 <meta name="theme-color" content="#101A2E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Luno Works">
@@ -25,8 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+1+Code:wght@400;500&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Luno Works",
-"alternateName":"ルノワークス","url":"https://luno-works.com/",
-"email":"support@luno-works.com",
+"url":"https://luno-works.com/","email":"support@luno-works.com",
 "description":"暮らしの中で把握しておきたいことを、見える形にする道具をつくるソフトウェアスタジオ。"}
 </script>
 </head>
@@ -74,6 +76,9 @@
   .site nav{display:flex;gap:22px;font-size:13.5px}
   .site nav a{color:var(--on-navy-mute);text-decoration:none;transition:color .2s}
   .site nav a:hover{color:var(--on-navy)}
+  .site nav a.lang{border:1px solid rgba(234,239,248,.28);border-radius:999px;
+    padding:3px 11px;font-family:"M PLUS 1 Code",monospace;font-size:11.5px;letter-spacing:.08em}
+  .site nav a.lang:hover{border-color:rgba(234,239,248,.6)}
   @media (max-width:720px){ .site nav{display:none} }
 
   /* ============ 抽象の世界（点のステージ） ============ */
@@ -141,7 +146,14 @@
   .work .dsc{margin:8px 0 0;font-size:14.5px;color:var(--muted);max-width:34em}
   .work .meta{margin:12px 0 0;font-size:12.5px;color:var(--faint)}
   .work .meta a{color:var(--muted)}
-  .acts{display:flex;flex-direction:column;gap:8px;align-items:stretch;min-width:168px}
+  /* ストアバッジは公式アートワークをそのまま使う（改変・角丸・色変更をしない）。
+     余白はバッジ高さの 1/4 以上（Apple 規定）、App Store を先頭に置く（同規定）。
+     Google Play の画像は内側に余白を含むため、実寸が揃う高さで表示する。 */
+  .acts{display:flex;flex-direction:column;gap:12px;align-items:flex-start;min-width:168px}
+  .badge{display:inline-flex;line-height:0;border-radius:8px}
+  .badge img{display:block;width:auto;height:44px}
+  .badge.gp img{height:57px;margin:-6.5px 0}
+  .badge:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
   .btn{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;
     min-height:44px;padding:10px 16px;border-radius:10px;text-decoration:none;
     font-size:13.5px;font-weight:500;border:1px solid var(--hair);color:var(--ink);
@@ -153,7 +165,7 @@
   @media (max-width:820px){
     .work{grid-template-columns:52px 1fr;gap:16px}
     .work img{width:52px;height:52px;border-radius:12px}
-    .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;min-width:0;margin-top:4px}
+    .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;min-width:0;margin-top:8px}
     .btn{flex:1 1 auto;min-width:140px}
   }
 
@@ -220,6 +232,7 @@
       <a href="#how">設計の方針</a>
       <a href="#about">運営者情報</a>
       <a href="#contact">お問い合わせ</a>
+      <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
     </nav>
   </div>
 </header>
@@ -295,8 +308,12 @@
           <p class="meta">無料（3GB）＋ベーシック ¥480/月〜（自動更新）　·　<a href="/tabilog/">プライバシー・規約</a></p>
         </div>
         <div class="acts">
-          <a class="btn p" href="https://apps.apple.com/jp/app/id6783845985" target="_blank" rel="noopener">App Store<span class="ar" aria-hidden="true">↗</span></a>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.lunoworks.tabilog" target="_blank" rel="noopener">Google Play<span class="ar" aria-hidden="true">↗</span></a>
+          <a class="badge" href="https://apps.apple.com/jp/app/id6783845985" target="_blank" rel="noopener">
+            <img src="./assets/badge-appstore-ja.svg" width="120" height="44" alt="App Store からダウンロード">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.tabilog" target="_blank" rel="noopener">
+            <img src="./assets/badge-googleplay-ja.png" width="147" height="57" alt="Google Play で手に入れよう">
+          </a>
         </div>
       </article>
 
@@ -309,8 +326,12 @@
           <p class="meta">無料＋買い切り Pro　·　<a href="/shikko-watch/">プライバシー・規約</a></p>
         </div>
         <div class="acts">
-          <a class="btn p" href="https://apps.apple.com/jp/app/id6782328115" target="_blank" rel="noopener">App Store<span class="ar" aria-hidden="true">↗</span></a>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.lunoworks.shikkowatch" target="_blank" rel="noopener">Google Play<span class="ar" aria-hidden="true">↗</span></a>
+          <a class="badge" href="https://apps.apple.com/jp/app/id6782328115" target="_blank" rel="noopener">
+            <img src="./assets/badge-appstore-ja.svg" width="120" height="44" alt="App Store からダウンロード">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.shikkowatch" target="_blank" rel="noopener">
+            <img src="./assets/badge-googleplay-ja.png" width="147" height="57" alt="Google Play で手に入れよう">
+          </a>
         </div>
       </article>
 
@@ -323,8 +344,12 @@
           <p class="meta">無料（件数上限あり）＋プレミアム（自動更新）　·　<a href="/stackly/">プライバシー・規約</a></p>
         </div>
         <div class="acts">
-          <a class="btn p" href="https://apps.apple.com/jp/app/id6793904271" target="_blank" rel="noopener">App Store<span class="ar" aria-hidden="true">↗</span></a>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.lunoworks.stackly" target="_blank" rel="noopener">Google Play<span class="ar" aria-hidden="true">↗</span></a>
+          <a class="badge" href="https://apps.apple.com/jp/app/id6793904271" target="_blank" rel="noopener">
+            <img src="./assets/badge-appstore-ja.svg" width="120" height="44" alt="App Store からダウンロード">
+          </a>
+          <a class="badge gp" href="https://play.google.com/store/apps/details?id=com.lunoworks.stackly" target="_blank" rel="noopener">
+            <img src="./assets/badge-googleplay-ja.png" width="147" height="57" alt="Google Play で手に入れよう">
+          </a>
         </div>
       </article>
 
