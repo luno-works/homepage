@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>プライバシーポリシー — nomulog</title>
+    <meta name="description" content="nomulog のプライバシーポリシー。薬の情報は当方のサーバーに送りません。送信する情報と送信先、端末のバックアップについて。" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <img class="brand-mark" src="../../assets/icon-nomulog.png" width="44" height="44" alt="" style="border-radius:11px" />
+        <div>
+          <div class="brand-name">nomulog</div>
+          <div class="brand-tag">薬とサプリの服用記録・飲み忘れ防止</div>
+        </div>
+      </header>
+
+      <h1 class="page-title">プライバシーポリシー</h1>
+      <p class="page-meta">最終更新: 2026年11月3日</p>
+
+      <div class="card">
+        <section>
+          <h2><span class="num">1.</span>はじめに</h2>
+          <p>nomulog（以下「本アプリ」）は、Luno Works（以下「当方」）が提供するサプリ・薬の服用記録アプリです。本ポリシーは、本アプリが取得する情報とその取り扱いを説明します。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">2.</span>本アプリが当方に送らない情報</h2>
+          <p>次の情報は<strong>利用者の端末内に保存</strong>し、本アプリから当方のサーバーや第三者に送信しません。当方がこれらを閲覧することはできません。</p>
+          <ul>
+            <li>薬・サプリの名前、アイコン、1回の量、単位、メモ</li>
+            <li>服用時刻、繰り返しの設定、開始日・終了日</li>
+            <li>服用の記録（服用した / 一部のみ / 服用しなかった / 未記録、飲んだ量、記録日時）</li>
+          </ul>
+          <p>これらは端末内のデータベースに保存され、本アプリを削除すると端末から消えます。書き出し（エクスポート）を行った場合、書き出したファイルの取り扱いは利用者の管理下にあります。</p>
+          <h3>端末のバックアップについて</h3>
+          <p>これらの情報は、機種変更などで引き継げるよう、OS のバックアップの対象になります。バックアップは Apple または Google のサービスとして利用者のアカウントなどに保存され、当方が閲覧することはできません。</p>
+          <ul>
+            <li>iPhone: iCloud バックアップや、Mac・PC へのバックアップを使っている場合に含まれます。</li>
+            <li>Android: Google のバックアップを使っていて、画面ロックにより端末側で暗号化できる場合にのみ、Google のバックアップに含まれます。暗号化できない場合は含まれません。機種変更時の端末間の直接転送でも引き継がれます。</li>
+          </ul>
+          <p>バックアップに含めたくない場合は、OS の設定でバックアップを止めてください。その場合、機種変更時の引き継ぎには本アプリの書き出し・読み込みを使ってください。</p>
+          <h3>カメラと写真</h3>
+          <p>お薬手帳の QR コードや薬の書類を読み取るときに、カメラまたは写真を使います。画像は端末内で処理し、保存も送信もしません。読み取った内容は、確認のうえ登録した場合にのみ端末内に保存します。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">3.</span>本アプリが送信する情報</h2>
+          <p>本アプリは、不具合の把握と改善、読み取り機能の提供のために次の情報を送信します。いずれにも上記2章の情報は含みません。送信先のサーバーは国外（米国を含む）にある場合があります。</p>
+          <h3>3.1 不具合の情報（Sentry）</h3>
+          <ul>
+            <li><strong>送信するもの</strong>: アプリが異常終了・エラーを起こした際の技術情報（エラーの内容と発生箇所、OS とそのバージョン、端末の機種、アプリのバージョン、画面遷移の記録）</li>
+            <li><strong>目的</strong>: 不具合の原因特定と修正</li>
+            <li><strong>停止できるか</strong>: <strong>停止できません</strong>（本アプリは端末内で完結するため、不具合を知る手段がこれ以外にありません）</li>
+            <li><strong>送信先</strong>: Sentry（Functional Software, Inc.）</li>
+          </ul>
+          <p>エラーの技術情報に薬名やメモが混ざらないよう、送信前に該当部分を伏せ字に置き換える処理を入れています。</p>
+          <h3>3.2 匿名の利用統計（PostHog）</h3>
+          <ul>
+            <li><strong>送信するもの</strong>: アプリの起動・終了、表示した画面の名前、アプリ内の操作の種別（例: 薬を登録した、その際に選んだ繰り返しの種類と単位）、OS・アプリのバージョン、言語、テーマ</li>
+            <li><strong>目的</strong>: どの機能が使われているかを把握し、改善の判断に使う</li>
+            <li><strong>停止できるか</strong>: <strong>できます</strong>（アプリ内のメニュー → プライバシーとデータ →「匿名利用統計を送信」をオフ）</li>
+            <li><strong>送信先</strong>: PostHog, Inc.</li>
+          </ul>
+          <p>登録した薬の名前やメモ、服用の記録は送信しません。IP アドレスに基づく地域の推定も行わない設定にしています。</p>
+          <h3>3.3 読み取り機能の診断情報（Google ML Kit。Android のみ）</h3>
+          <ul>
+            <li><strong>送信するもの</strong>: 端末の情報（メーカー、機種、OS のバージョンなど）、アプリの情報（パッケージ名、バージョン）、処理時間、入出力のサイズ、インストールごとの識別子。<strong>画像と読み取った内容は含みません</strong></li>
+            <li><strong>目的</strong>: Google による読み取り機能の診断と利用状況の分析</li>
+            <li><strong>停止できるか</strong>: アプリ内では停止できません</li>
+            <li><strong>送信先</strong>: Google LLC</li>
+          </ul>
+          <p>Android では、日本語の文字認識のモデルも Google Play 開発者サービスから取得します。iPhone の読み取りは OS の機能を使い、この情報は送信しません。</p>
+          <h3>3.4 利用者の識別について</h3>
+          <p>本アプリはアカウント登録を必要とせず、氏名・メールアドレス・電話番号・広告 ID などは取得しません。3.1 と 3.2 の情報には、端末内で生成したランダムな文字列（匿名 ID）を付けて送信します。この ID から個人を特定することはできず、2章の情報とも結び付きません。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">4.</span>通知</h2>
+          <p>服用時刻のリマインダーは端末内で予約・表示されるローカル通知です。通知の内容（薬の名前と時刻）が端末の外に出ることはありません。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">5.</span>データの保存期間と削除</h2>
+          <ul>
+            <li>端末内のデータ: 本アプリを削除すると消えます。アプリ内の設定から「すべての記録を削除」も行えます。作成済みの OS のバックアップに含まれるデータは、OS やバックアップサービスの設定に従います。</li>
+            <li>送信済みの不具合・利用統計の情報: 送信先サービスの保存期間に従って自動的に削除されます。それ以前に削除を希望する場合は、アプリ内のメニュー → プライバシーとデータの下部に表示される匿名 ID を添えて <a href="mailto:support@luno-works.com">support@luno-works.com</a> までご連絡ください。当方が該当データを削除します。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><span class="num">6.</span>第三者への提供</h2>
+          <p>上記3章の送信先（Sentry・PostHog・Google）以外に情報を提供・販売することはありません。広告は表示せず、広告目的の情報収集も行いません。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">7.</span>お子様の利用について</h2>
+          <p>本アプリは特定の年齢層を対象としたものではなく、個人を特定する情報を取得しません。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">8.</span>本ポリシーの変更</h2>
+          <p>内容を変更する場合は、本ページを更新し、最終更新日を改めます。重要な変更はアプリ内でお知らせします。</p>
+        </section>
+
+        <section>
+          <h2><span class="num">9.</span>お問い合わせ</h2>
+          <p>Luno Works ／ <a href="mailto:support@luno-works.com">support@luno-works.com</a></p>
+        </section>
+      </div>
+
+      <a class="back" href="../">← サポート情報へ戻る</a>
+
+      <footer class="site-footer">
+        <nav>
+          <a href="./">プライバシーポリシー</a>
+          <a href="../terms/">利用規約</a>
+          <a href="mailto:support@luno-works.com">お問い合わせ</a>
+        </nav>
+        <div>nomulog ／ Luno Works</div>
+      </footer>
+    </div>
+  </body>
+</html>
